@@ -54,7 +54,7 @@ function Navbar() {
           <div className="flex items-center gap-3">
             <motion.a
               href={resumePdf}
-              download
+              download="Likhitha_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="hidden rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-gray-200 hover:border-white/40 hover:text-white transition md:block"
@@ -125,7 +125,7 @@ function Navbar() {
             ))}
             <a
               href={resumePdf}
-              download
+              download="Likhitha_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="text-gray-300 hover:text-white transition-colors py-2"

@@ -167,7 +167,7 @@ function Hero() {
 
               <motion.a
                 href={resumePdf}
-                download
+                download="Likhitha_Resume.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="group rounded-full border-2 border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm hover:border-white/40 hover:bg-white/10 transition-all"
