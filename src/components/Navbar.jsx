@@ -34,6 +34,7 @@ function Navbar() {
               { href: "#projects", label: "Projects" },
               { href: "#experience", label: "Experience" },
               { href: "#skills", label: "Skills" },
+              { href: "#why-hire-me", label: "Why Hire Me" },
               { href: "#achievements", label: "Achievements" },
               { href: "#contact", label: "Contact" },
             ].map((link) => (
@@ -109,6 +110,7 @@ function Navbar() {
               { href: "#projects", label: "Projects" },
               { href: "#experience", label: "Experience" },
               { href: "#skills", label: "Skills" },
+              { href: "#why-hire-me", label: "Why Hire Me" },
               { href: "#achievements", label: "Achievements" },
               { href: "#contact", label: "Contact" },
             ].map((link) => (

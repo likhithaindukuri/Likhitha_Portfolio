@@ -77,18 +77,30 @@ function Hero() {
             transition={{ duration: 0.8 }}
             className="flex-1 space-y-3 text-center lg:text-left"
           >
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 px-4 py-2 text-xs font-semibold text-emerald-200 backdrop-blur-sm"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-2"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              Available for opportunities & freelance projects
-            </motion.p>
+              <motion.p
+                className="inline-flex items-center gap-2 rounded-full border-2 border-emerald-400/40 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 px-5 py-2.5 text-sm font-bold text-emerald-100 backdrop-blur-sm shadow-lg shadow-emerald-500/20"
+                whileHover={{ scale: 1.05, boxShadow: "0 8px 16px rgba(16, 185, 129, 0.3)" }}
+              >
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+                </span>
+                <span className="bg-gradient-to-r from-emerald-200 to-cyan-200 bg-clip-text text-transparent">
+                  🚀 Available for Freelance Projects
+                </span>
+              </motion.p>
+              <motion.p
+                className="inline-flex items-center gap-2 rounded-full border border-blue-300/20 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-4 py-2 text-xs font-semibold text-blue-200 backdrop-blur-sm"
+              >
+                Open to Full-Time Opportunities
+              </motion.p>
+            </motion.div>
 
             <div className="space-y-2">
               <motion.h1
@@ -127,9 +139,8 @@ function Hero() {
               className="text-base sm:text-lg text-gray-300 max-w-2xl leading-relaxed"
             >
               I design and ship performant, reliable products across web and mobile, from polished
-              user interfaces to well-structured backend APIs. This portfolio showcases my work as
-              both a full-time engineer and a freelance developer, focused on building things that
-              are easy to use and maintain.
+              user interfaces to well-structured backend APIs. <span className="text-emerald-300 font-semibold">Currently accepting freelance projects</span> and open to full-time opportunities. 
+              Focused on building solutions that are scalable, maintainable, and deliver real value.
             </motion.p>
 
             <motion.div

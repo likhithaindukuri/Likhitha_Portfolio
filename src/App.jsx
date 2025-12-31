@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import Navbar from "./components/Navbar";
+import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
+import Navbar from "./components/Navbar";
 import Projects from "./sections/Projects";
-import Skills from "./sections/Skills";
-import Achievements from "./sections/Achievements";
 import Services from "./sections/Services";
+import Skills from "./sections/Skills";
+import WhyHireMe from "./sections/WhyHireMe";
 
 function App() {
   useEffect(() => {
@@ -32,6 +33,7 @@ function App() {
           <Projects />
           <Experience />
           <Skills />
+          <WhyHireMe />
           <Achievements />
           <Contact />
         </main>

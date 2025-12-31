@@ -24,6 +24,41 @@ const socialLinks = [
 
 function Contact() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const mailtoLink = `mailto:likhithaindukuri07@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      window.location.href = mailtoLink;
+      
+      setTimeout(() => {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setIsSubmitting(false);
+      }, 500);
+    } catch {
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section
@@ -135,17 +170,102 @@ function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-12"
         >
-          <p className="text-gray-400 mb-4">Or send me a direct message</p>
-          <motion.a
-            href="mailto:likhithaindukuri07@gmail.com"
-            className="inline-block rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-emerald-600/30"
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Send Email
-          </motion.a>
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/80 to-slate-800/80 p-8 backdrop-blur-sm">
+            <h3 className="text-2xl font-bold text-white mb-2 text-center">Send me a message</h3>
+            <p className="text-gray-400 text-sm text-center mb-6">Fill out the form below and I'll get back to you soon</p>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all resize-none"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-sm"
+                >
+                  ✓ Message sent! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-300 text-sm"
+                >
+                  ✗ Something went wrong. Please try again or email directly.
+                </motion.div>
+              )}
+
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-emerald-600/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                whileHover={!isSubmitting ? { scale: 1.02, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </motion.button>
+            </form>
+
+            <p className="text-xs text-gray-500 text-center mt-4">
+              Or email directly at{" "}
+              <a
+                href="mailto:likhithaindukuri07@gmail.com"
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
+                likhithaindukuri07@gmail.com
+              </a>
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
