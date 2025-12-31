@@ -18,7 +18,7 @@ const projects = [
     tech: ["React", "Node.js", "MongoDB", "Passport.js"],
     link: "https://github.com/likhithaindukuri",
     github: "https://github.com/likhithaindukuri",
-    demo: "https://wisher-app.vercel.app/",
+    demo: "https://wisher-omega.vercel.app/",
     gradient: "from-sky-500 to-indigo-500",
   },
   {
