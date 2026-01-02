@@ -1,64 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-
-const socialLinks = [
-  {
-    name: "Email",
-    href: "mailto:likhithaindukuri07@gmail.com",
-    color: "from-emerald-500 to-teal-400",
-    label: "likhithaindukuri07@gmail.com",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/likhithaindukuri/",
-    color: "from-sky-500 to-indigo-500",
-    label: "linkedin.com/in/likhithaindukuri",
-  },
-  {
-    name: "GitHub",
-    href: "https://github.com/likhithaindukuri",
-    color: "from-slate-600 to-slate-800",
-    label: "github.com/likhithaindukuri",
-  },
-];
 
 function Contact() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      const mailtoLink = `mailto:likhithaindukuri07@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-      window.location.href = mailtoLink;
-      
-      setTimeout(() => {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-        setIsSubmitting(false);
-      }, 500);
-    } catch {
-      setSubmitStatus("error");
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <section
@@ -72,202 +14,51 @@ function Contact() {
         transition={{ duration: 0.6 }}
         className="mx-auto max-w-5xl text-center"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-200 mb-3"
-        >
-          Let&apos;s Connect
-        </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-5xl font-bold text-white mb-4"
+          className="text-4xl sm:text-5xl font-bold text-white mb-6"
         >
-          Get In Touch
+          Have an idea or feature to build?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-400 text-lg max-w-2xl mx-auto"
+          transition={{ delay: 0.1 }}
+          className="text-xl text-gray-400 mb-12"
         >
-          Open to full-time opportunities, freelance projects, and collaborations. Whether you need
-          a web app, mobile solution, or full-stack development, let&apos;s discuss how I can help
-          bring your vision to life. You can typically expect a reply within 24 hours.
+          Let&apos;s talk.
         </motion.p>
       </motion.div>
 
-      <div className="mx-auto mt-16 max-w-5xl">
-        <div className="grid gap-6 md:grid-cols-3">
-          {socialLinks.map((link, index) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={link.href.startsWith("mailto:") ? undefined : "noreferrer"}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-              whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/80 to-slate-800/80 p-8 backdrop-blur-sm"
-            >
-              <div
-                className={`absolute -inset-0.5 bg-gradient-to-r ${link.color} opacity-0 group-hover:opacity-40 blur-md transition duration-500`}
-              />
-              
-              <div className="relative z-10 text-center">
-                <motion.div
-                  animate={{
-                    scale: hoveredIndex === index ? 1.06 : 1,
-                  }}
-                  transition={{ duration: 0.25 }}
-                  className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-xl bg-slate-900/80 border border-slate-600/40"
-                >
-                  {link.name === "Email" && (
-                    <svg className="w-6 h-6 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  )}
-                  {link.name === "LinkedIn" && (
-                    <svg className="w-6 h-6 text-sky-300" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM6.781 20.452H3.891V9h2.89v11.452z" />
-                    </svg>
-                  )}
-                  {link.name === "GitHub" && (
-                    <svg className="w-6 h-6 text-slate-200" fill="currentColor" viewBox="0 0 24 24">
-                      <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                    </svg>
-                  )}
-                </motion.div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-300 group-hover:to-cyan-300 transition-all">
-                  {link.name}
-                </h3>
-                <p className="text-sm text-gray-400 break-all">
-                  {link.label}
-                </p>
-                <motion.div
-                  className="mt-4 text-emerald-300 font-semibold text-sm"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: hoveredIndex === index ? 1 : 0, x: hoveredIndex === index ? 0 : -10 }}
-                >
-                  Connect →
-                </motion.div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-12"
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        className="mx-auto max-w-2xl flex flex-wrap items-center justify-center gap-4"
+      >
+        <motion.a
+          href="mailto:likhithaindukuri07@gmail.com"
+          className="rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-emerald-600/30"
+          whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" }}
+          whileTap={{ scale: 0.95 }}
         >
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/80 to-slate-800/80 p-8 backdrop-blur-sm">
-            <h3 className="text-2xl font-bold text-white mb-2 text-center">Send me a message</h3>
-            <p className="text-gray-400 text-sm text-center mb-6">Fill out the form below and I'll get back to you soon</p>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all resize-none"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              {submitStatus === "success" && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-lg bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-sm"
-                >
-                  ✓ Message sent! I'll get back to you soon.
-                </motion.div>
-              )}
-
-              {submitStatus === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-300 text-sm"
-                >
-                  ✗ Something went wrong. Please try again or email directly.
-                </motion.div>
-              )}
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-emerald-600/30 disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={!isSubmitting ? { scale: 1.02, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" } : {}}
-                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </motion.button>
-            </form>
-
-            <p className="text-xs text-gray-500 text-center mt-4">
-              Or email directly at{" "}
-              <a
-                href="mailto:likhithaindukuri07@gmail.com"
-                className="text-emerald-400 hover:text-emerald-300 underline"
-              >
-                likhithaindukuri07@gmail.com
-              </a>
-            </p>
-          </div>
-        </motion.div>
-      </div>
+          Email Me
+        </motion.a>
+        <motion.a
+          href="https://www.linkedin.com/in/likhithaindukuri/"
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full border-2 border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm hover:border-white/40 hover:bg-white/10 transition-all"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          LinkedIn
+        </motion.a>
+      </motion.div>
     </section>
   );
 }

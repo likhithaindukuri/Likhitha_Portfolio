@@ -2,31 +2,31 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Task Genie",
-    description:
-      "GenAI-powered task manager that converts natural language into structured tasks, with analytics and CRUD workflows.",
-    tech: ["React", "Spring Boot", "PostgreSQL", "Tailwind"],
-    link: "https://github.com/likhithaindukuri",
-    github: "https://github.com/likhithaindukuri",
-    demo: "https://task-genie-iota.vercel.app/",
-    gradient: "from-emerald-500 to-teal-400",
-  },
-  {
     title: "Wisher",
-    description:
-      "Automated wish scheduling platform with secure auth and responsive UI for desktop screens.",
+    problem: "People forget to send wishes on important dates, missing opportunities to connect.",
+    solution: "Built an automated wish scheduling platform with time-based delivery logic and secure authentication.",
+    outcome: "Automated scheduling eliminates forgetfulness—users set wishes once and they're delivered on time, ensuring no missed connections.",
     tech: ["React", "Node.js", "MongoDB", "Passport.js"],
-    link: "https://github.com/likhithaindukuri",
     github: "https://github.com/likhithaindukuri",
     demo: "https://wisher-omega.vercel.app/",
     gradient: "from-sky-500 to-indigo-500",
   },
   {
+    title: "Task Genie",
+    problem: "Task management tools require structured input, making quick task creation tedious.",
+    solution: "Built a GenAI-powered task manager that converts natural language into structured tasks with analytics.",
+    outcome: "Natural language input removes the tedious formatting—users type tasks conversationally and AI structures them automatically, making task creation instant.",
+    tech: ["React", "Spring Boot", "PostgreSQL", "Tailwind"],
+    github: "https://github.com/likhithaindukuri",
+    demo: "https://task-genie-iota.vercel.app/",
+    gradient: "from-emerald-500 to-teal-400",
+  },
+  {
     title: "prepXpert",
-    description:
-      "Comprehensive preparation platform for competitive exams with practice tests, analytics, and personalized study plans.",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
-    link: "https://github.com/likhithaindukuri",
+    problem: "Competitive exam prep lacks structured practice and performance insights.",
+    solution: "Built a comprehensive platform with topic-based modules, automated mock tests, and real-time analytics.",
+    outcome: "Topic-based modules and automated tests provide structured practice, while real-time analytics give clear performance insights—transforming scattered prep into focused improvement.",
+    tech: ["React", "GoLang", "PostgreSQL"],
     github: "https://github.com/likhithaindukuri",
     demo: "https://prep-xpert-three.vercel.app/",
     gradient: "from-amber-500 to-emerald-500",
@@ -60,18 +60,9 @@ function Projects() {
         >
           Featured Projects
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-400 text-lg max-w-2xl mx-auto"
-        >
-          Real-world applications showcasing full-stack development, AI integration, and modern web technologies.
-        </motion.p>
       </motion.div>
 
-      <div className="mx-auto mt-16 grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.article
             key={project.title}
@@ -108,15 +99,26 @@ function Projects() {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-300 mb-6 flex-grow leading-relaxed">
-                  {project.description}
-                </p>
+                <div className="space-y-3 mb-6 flex-grow">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Problem</p>
+                    <p className="text-gray-300 text-sm leading-relaxed">{project.problem}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Solution</p>
+                    <p className="text-gray-300 text-sm leading-relaxed">{project.solution}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">Outcome</p>
+                    <p className="text-emerald-300 text-sm leading-relaxed font-medium">{project.outcome}</p>
+                  </div>
+                </div>
 
-                <div className="mb-6 flex flex-wrap gap-2">
+                <div className="mb-6 flex flex-wrap gap-1.5">
                   {project.tech.map((item, techIndex) => (
                     <motion.span
                       key={item}
@@ -124,7 +126,7 @@ function Projects() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + techIndex * 0.05 }}
-                      className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-gray-200 backdrop-blur-sm border border-white/5"
+                      className="rounded-md bg-white/5 px-2 py-0.5 text-[10px] font-normal text-gray-400/80"
                     >
                       {item}
                     </motion.span>

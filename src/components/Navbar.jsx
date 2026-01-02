@@ -31,11 +31,9 @@ function Navbar() {
 
           <div className="hidden items-center gap-8 text-sm font-medium text-gray-300 md:flex">
             {[
+              { href: "#services", label: "Services" },
               { href: "#projects", label: "Projects" },
-              { href: "#experience", label: "Experience" },
-              { href: "#skills", label: "Skills" },
-              { href: "#why-hire-me", label: "Why Hire Me" },
-              { href: "#achievements", label: "Achievements" },
+              { href: "#why-hire-me", label: "Why Work With Me" },
               { href: "#contact", label: "Contact" },
             ].map((link) => (
               <motion.a
@@ -108,10 +106,7 @@ function Navbar() {
             {[
               { href: "#services", label: "Services" },
               { href: "#projects", label: "Projects" },
-              { href: "#experience", label: "Experience" },
-              { href: "#skills", label: "Skills" },
-              { href: "#why-hire-me", label: "Why Hire Me" },
-              { href: "#achievements", label: "Achievements" },
+              { href: "#why-hire-me", label: "Why Work With Me" },
               { href: "#contact", label: "Contact" },
             ].map((link) => (
               <a
