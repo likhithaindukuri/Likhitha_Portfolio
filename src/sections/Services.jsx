@@ -2,28 +2,29 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    title: "MVP & Prototype Development",
-    description: "Go from idea to a working product quickly. I build web apps with React + Node/Spring Boot, handle authentication, create dashboards, and deploy to production.",
+    title: "Small Tasks & Bug Fixes",
+    description:
+    "Quick help with React bugs, UI fixes, API integration, or backend issues. Ideal for short-term or first-time collaborations.",
     includes: [
-      "Web apps (React + Node / Spring Boot)",
+      "Bug fixes & debugging",
+      "Small UI fixes & improvements",
+      "API integration & fixes",
+      "Minor backend issues",
+      "Quick performance & code cleanup",
+    ],
+    color: "from-sky-500 to-indigo-500",
+  },
+  {
+    title: "MVP & Prototype Development",
+    description: "Go from idea to a working product quickly. I build web apps with React + Node/Spring Boot/Go, handle authentication, create dashboards, and deploy to production.",
+    includes: [
+      "Web apps (React + Node / Spring Boot / Go)",
       "Authentication & user management",
       "Interactive dashboards",
       "CRUD operations",
       "Production deployment",
     ],
     color: "from-emerald-500 to-teal-400",
-  },
-  {
-    title: "React / React Native Development",
-    description: "New features, bug fixes, API integrations, and UI polish. Direct experience from shipping production mobile apps.",
-    includes: [
-      "New feature development",
-      "Bug fixes & debugging",
-      "API integration",
-      "UI polish & performance optimization",
-      "Component architecture",
-    ],
-    color: "from-sky-500 to-indigo-500",
   },
   {
     title: "Internal Tools & Dashboards",

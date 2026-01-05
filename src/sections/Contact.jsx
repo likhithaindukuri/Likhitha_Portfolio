@@ -29,7 +29,7 @@ function Contact() {
           transition={{ delay: 0.1 }}
           className="text-xl text-gray-400 mb-12"
         >
-          Let&apos;s talk.
+          Let&apos;s talk and we'll start simple.
         </motion.p>
       </motion.div>
 

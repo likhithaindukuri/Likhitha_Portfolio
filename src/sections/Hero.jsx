@@ -47,7 +47,7 @@ function Hero() {
               transition={{ delay: 0.2 }}
               className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-white mb-6"
             >
-              I help early-stage startups build MVPs, internal tools, and web applications — fast and reliably.
+              I help startups and founders build MVPs, dashboards, and web features — quickly and reliably.
             </motion.h1>
 
             <motion.p
@@ -56,7 +56,7 @@ function Hero() {
               transition={{ delay: 0.3 }}
               className="text-xl sm:text-2xl text-gray-400 max-w-3xl leading-relaxed mb-8"
             >
-              Full-stack developer with real-world product experience using React, React Native, Node, and Spring Boot.
+              Full-stack developer with real-world experience using React, Node, Spring Boot and Go.
             </motion.p>
 
             <motion.div

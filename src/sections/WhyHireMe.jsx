@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 
 const highlights = [
   {
+    title: "Beginner Friendly",
+    description: "Beginner-friendly collaboration — happy to start small and grow step by step.",
+  },
+  {
     title: "Startup-focused mindset",
     description: "I understand the urgency and constraints of early-stage startups. I prioritize speed without sacrificing quality.",
   },
@@ -12,10 +16,6 @@ const highlights = [
   {
     title: "Clean, maintainable code",
     description: "Code that your team can actually work with later. No shortcuts that create technical debt.",
-  },
-  {
-    title: "Experience shipping real products",
-    description: "I’ve built and shipped production-ready applications and understand what it takes to deliver reliably.",
   },
   {
     title: "Ownership mindset",
